@@ -1,5 +1,5 @@
-Numer of hits : 0
-Number of misses : 10
-Total Memory Access time : 20
-Average Memory Access Time : 2
-Bus busy time : 20
+Numer of hits : 480613
+Number of misses : 35070
+Total Memory Access time : 550753
+Average Memory Access Time : 1.06801
+Bus busy time : 605559

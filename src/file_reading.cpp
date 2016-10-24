@@ -55,22 +55,26 @@ void input_file_reading(ifstream &fin,cache*mem,ofstream &output)
 	while(!fin.eof())
 	{
 		unsigned long int val;
-		std::string req,val_string;
-		int read_write;
-
+		std::string req,val_string,temp,temp1;
+		int read_write,instr_num;
 		std::string line;
 		getline(fin,line);
 		if (line[0]=='\n' || line[0]=='\x0')
 			continue;
 
 		char ptr[line.size()+1];
-
+  //  char ptr[1];
+    //instr_num= ptr[line.size()+1];
 		strcpy(ptr,line.c_str());
-		val_string=strtok(ptr," ,\t");
-		val=hex2int(val_string);
-		req=strtok(NULL," ,\t");
+		req=strtok(ptr," ,\t");
+        temp=strtok(NULL," ,\t");
+		val=hex2int(temp);
+        temp1 = strtok(NULL," ,\t");
+        //std::cout << temp1;
+		instr_num= std::stoi( temp1);
+        std::cout << instr_num;
 
-		read_write=((req.compare("RD")==0)?1:((req.compare("WR")==0)?2:0));
+		read_write=((req.compare("l")==0)?1:((req.compare("s")==0)?2:0));
 		/* read_write = 1 (for RD)
 		 * read_write = 2 (for WR)
 		 * read_write = 0 (otherwise, incorrect input)
