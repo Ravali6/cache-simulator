@@ -85,6 +85,6 @@ void input_file_reading(ifstream &fin,cache*mem,ofstream &output)
 
 	}
 
-	output<<"Numer of hits : "<<mem->hits()<<"\nNumber of misses : "<<mem->misses()<<"\nTotal Memory Access time : "<<mem->TMAT()<<"\nAverage Memory Access Time : "<<mem->AMAT()<<"\nBus busy time : "<<mem->time_taken()<<std::endl;
+	output<<"Total Hit Rate : "<<mem->hits()<<"\nLoad Hit Rate : "<<mem->hits()<<"\nStore Hit Rate : "<<mem->hits()<<"\nTotal Run Time : "<<mem->TMAT()<<"\nAverage Memory Access Latency :"<<mem->AMAT<<std::endl;
 
 }
