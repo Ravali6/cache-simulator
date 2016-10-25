@@ -1,7 +1,8 @@
 // This file defines the functions of the cache class
 
 #include "../include/cache.h"
-
+int ext=0;
+int nl_hit=0;
 cache::cache(int *arr)
 {
 	/* Configuration details */
@@ -198,13 +199,14 @@ bool cache::insert(unsigned long int val)
 }
 
 
-void cache::read_write_request(unsigned long int  val,int read_write)
+void cache::read_write_request(unsigned long int  val,int read_write, int instr_num)
 {
 	/*
-	 * read_write = 1 (for read)
-	 * read_write = 2 (for write)
+	 * read_write = 1 (for load)
+	 * read_write = 2 (for store)
 	 */
 
+		ext+=instr_num;
 	/* Irrespective of the read_write request, check if the value is already present */
 	if(!inCache(val))
 	{
@@ -237,6 +239,7 @@ void cache::read_write_request(unsigned long int  val,int read_write)
 	else
 	{
 		n_hit++;
+		nl_hit++;
 	//	printf("%lx %lu %d\n",val,val,read_write);
 		/* In case of read request, return */
 		if (read_write==1)
@@ -268,12 +271,12 @@ void cache::read_write_request(unsigned long int  val,int read_write)
 
 unsigned int cache::hits()
 {
-		return n_hit;
+		return n_hit*100/n_hits+n_miss;
 }
 
 unsigned int cache::misses()
 {
-		return n_miss;
+		return nl_hit*100/n_hits;
 }
 
 unsigned long int cache::time_taken()

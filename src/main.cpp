@@ -25,7 +25,7 @@ int main(int argc,char*args[])
 		std::cerr<<"Please input the input file and the configuration file\n";
 		std::cerr<<"Usage : cache_simulator <input file> <configuration file>\n";
         	exit(1);        // exit status 1 : Incorrect number of inputs.
-    	}	
+    	}
 
 	// If parameters are correct, continue
 

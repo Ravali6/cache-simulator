@@ -30,7 +30,7 @@ class cache
 		cache(int *arr);
 		bool insert(unsigned long int val);
 		bool inCache(unsigned long int val);
-		void read_write_request(unsigned long int val,int read_write, int instr_num);
+		void read_write_request(unsigned long int val,int read_write);
 		unsigned int hits();
 		unsigned int misses();
 		unsigned long int time_taken();

@@ -72,7 +72,7 @@ void input_file_reading(ifstream &fin,cache*mem,ofstream &output)
         temp1 = strtok(NULL," ,\t");
         //std::cout << temp1;
 		instr_num= std::stoi( temp1);
-        std::cout << instr_num;
+    //    std::cout << instr_num;
 
 		read_write=((req.compare("l")==0)?1:((req.compare("s")==0)?2:0));
 		/* read_write = 1 (for RD)
@@ -81,7 +81,7 @@ void input_file_reading(ifstream &fin,cache*mem,ofstream &output)
 		 */
 	//	std::cout<<"val ="<<val<<std::endl;
 		if(read_write)
-			mem->read_write_request(val,read_write);
+			mem->read_write_request(val,read_write,instr_num);
 
 	}
 
