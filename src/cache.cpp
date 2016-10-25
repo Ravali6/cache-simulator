@@ -239,12 +239,13 @@ void cache::read_write_request(unsigned long int  val,int read_write, int instr_
 	else
 	{
 		n_hit++;
-		nl_hit++;
+		
 	//	printf("%lx %lu %d\n",val,val,read_write);
 		/* In case of read request, return */
 		if (read_write==1)
 		{
-			return;
+			nl_hit++;
+			{return};
 		}
 
 		else
@@ -271,12 +272,12 @@ void cache::read_write_request(unsigned long int  val,int read_write, int instr_
 
 unsigned int cache::hits()
 {
-		return n_hit*100/n_hits+n_miss;
+		return n_hit*100/(n_hits+n_miss);
 }
 
 unsigned int cache::misses()
 {
-		return nl_hit*100/n_hits;
+		return (n_hit-nl_hit)*100/n_hits;
 }
 
 unsigned long int cache::time_taken()
